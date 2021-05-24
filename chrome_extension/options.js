@@ -19,7 +19,7 @@ function handleButtonClick(event) {
 
 // Add a button to the page for each supplied color
 function constructOptions(buttonColors) {
-    chrome.storage.sync.get("color", (date) => {
+    chrome.storage.sync.get("color", (data) => {
         let currentColor = data.color
         // For each color we were provided ...
         for (let buttonColor of buttonColors) {
