@@ -1,39 +1,12 @@
-// EXPLICIT
-// const person: {
-//     name: string,
-//     age: number
-// } = {
-//     name: "Adrian",
-//     age: 21
-// }
-// INFERED 
-// const person : {
-//     name: string,
-//     age: number,
-//     hobbies: string[],
-//     role: [number, string]
-// } = {
-//     name: "Adrian",
-//     age: 21,
-//     hobbies: ['Cooking', 'Video Games'],
-//     role: [2, 'author']
-// }
-var Role;
-(function (Role) {
-    Role[Role["ADMIN"] = 0] = "ADMIN";
-    Role[Role["READ_ONLY"] = 1] = "READ_ONLY";
-    Role[Role["AUTHOR"] = 2] = "AUTHOR";
-})(Role || (Role = {}));
-const person = {
-    name: "Adrian",
-    age: 21,
-    hobbies: ['Cooking', 'Video Games'],
-    role: Role.AUTHOR
-};
-let favoriteActivities;
-for (const hobby of person.hobbies) {
-    console.log(hobby);
+function combine(input1, input2, resultConversion) {
+    if (typeof input1 === 'number' && typeof input2 === 'number' || resultConversion === 'as-number') {
+        return +input1 + +input2;
+    }
+    else {
+        return input1.toString() + input2.toString();
+    }
 }
-if (person.role === Role.AUTHOR) {
-    console.log(' is author');
-}
+const combinedAges = combine(21, 20, 'as-number');
+console.log(combinedAges);
+const combinedNames = combine('Adrian', 'Sebastian', 'as-string');
+console.log(combinedNames);
